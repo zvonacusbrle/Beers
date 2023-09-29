@@ -2,14 +2,16 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id "org.jlleitschuh.gradle.ktlint" version "11.5.1"
+    id "com.apollographql.apollo3" version "3.8.2"
+
 }
 
 android {
-    namespace 'com.example.beer'
+    namespace 'com.example.rockets'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.beer"
+        applicationId "com.example.rockets"
         minSdk 26
         targetSdk 33
         versionCode 1
@@ -20,6 +22,8 @@ android {
             useSupportLibrary true
         }
     }
+    android.sourceSets.main.java.srcDirs += 'src/main/graphql'
+
 
     buildTypes {
         release {
@@ -43,6 +47,22 @@ android {
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    apollo {
+        service("RocketsGraphQL") {
+            packageName.set("com.example.rockets")
+
+            introspection{
+                endpointUrl.set("https://spacex-production.up.railway.app/")
+                schemaFile.set(file("src/main/graphql/com/example/rockets/schema.sdl"))
+
+            }
         }
     }
 }
@@ -73,7 +93,10 @@ dependencies {
     implementation libs.compose.ui
     implementation libs.compose.ui.tooling.preview
     implementation libs.compose.material3
+    implementation libs.koin
+    implementation libs.graphql
     testImplementation libs.junit
+    testImplementation libs.roboelectric
     androidTestImplementation libs.androidx.test.ext.junit
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.compose.ui.test.junit4
