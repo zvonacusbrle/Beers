@@ -1,20 +1,17 @@
 package com.example.beer.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
+import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
-private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
-)
+private val DarkColors = darkColorScheme()
 
-private val LightColorPalette = lightColors(
+private val LightColors = lightColorScheme(
     primary = Purple500,
-    primaryVariant = Purple700,
     secondary = Teal200
 
     /* Other default colors to override
@@ -28,15 +25,18 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun BeerTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+fun BeerTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
     val colors = if (darkTheme) {
-        DarkColorPalette
+        LightColors
     } else {
-        LightColorPalette
+        DarkColors
     }
 
     MaterialTheme(
-        colors = colors,
+        colorScheme = colors,
         typography = Typography,
         shapes = Shapes,
         content = content
