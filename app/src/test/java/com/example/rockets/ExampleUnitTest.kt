@@ -1,4 +1,4 @@
-package com.example.beer
+package com.example.rockets
 
 import org.junit.Assert.*
 import org.junit.Test
