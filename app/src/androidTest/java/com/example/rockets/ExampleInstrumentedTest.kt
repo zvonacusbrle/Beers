@@ -1,4 +1,4 @@
-package com.example.beer
+package com.example.rockets
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
