@@ -3,7 +3,6 @@ package com.example.rockets
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -31,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     }
                     is Resource.Success -> {
                         Log.d(TAG, "Success - Called ${it.data}")
-                        Toast.makeText(this@MainActivity, "${it.data}", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(this@MainActivity, "${it.data}", Toast.LENGTH_SHORT).show()
                     }
                     is Resource.Error -> {
                         Log.d(TAG, "Error - Called $it")
