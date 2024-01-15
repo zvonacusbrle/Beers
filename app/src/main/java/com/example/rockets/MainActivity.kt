@@ -3,11 +3,13 @@ package com.example.rockets
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.firebase.FirebaseApp
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import com.google.firebase.perf.FirebasePerformance
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -16,10 +18,14 @@ class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        FirebaseApp.initializeApp(this)
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
+        FirebasePerformance.getInstance().isPerformanceCollectionEnabled = true
+
         setContent {
             setupObserver()
         }
-        // setupObserver()
     }
 
     private fun setupObserver() {
@@ -31,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     }
                     is Resource.Success -> {
                         Log.d(TAG, "Success - Called ${it.data}")
-                        Toast.makeText(this@MainActivity, "${it.data}", Toast.LENGTH_SHORT).show()
+                        // Toast.makeText(this@MainActivity, "${it.data}", Toast.LENGTH_SHORT).show()
                     }
                     is Resource.Error -> {
                         Log.d(TAG, "Error - Called $it")
