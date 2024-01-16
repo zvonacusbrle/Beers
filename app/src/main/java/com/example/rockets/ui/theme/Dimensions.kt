@@ -4,11 +4,11 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 data class Dimensions(
-    val small:Dp,
-    val smallMedium:Dp,
-    val medium:Dp,
-    val mediumLarge:Dp,
-    val large:Dp
+    val small: Dp,
+    val smallMedium: Dp,
+    val medium: Dp,
+    val mediumLarge: Dp,
+    val large: Dp
 )
 
 val smallDimensions = Dimensions(
