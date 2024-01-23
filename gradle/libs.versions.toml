@@ -1,4 +1,5 @@
 [versions]
+accompanistAdaptive = "0.26.2-beta"
 androidx-material3WindowSizeClass = "1.0.1"
 core-ktx = "1.12.0"
 lifecycle-runtime-ktx = "2.7.0"
@@ -13,6 +14,7 @@ material3WindowSizeClass = "1.0.1"
 roboelectric = "4.9.2"
 koin = "3.5.0"
 graphql = "3.8.2"
+runtimeLivedata = "1.5.4"
 rxJava = "3.0.0"
 hilt = "2.48"
 lifecycle = "2.7.0"
@@ -26,8 +28,10 @@ minSdk = "21"
 targetSdk = "33"
 
 [libraries]
+accompanist-adaptive = { module = "com.google.accompanist:accompanist-adaptive", version.ref = "accompanistAdaptive" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
 androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+androidx-runtime-livedata = { module = "androidx.compose.runtime:runtime-livedata", version.ref = "runtimeLivedata" }
 androidx-window-size = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "material3" }
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }

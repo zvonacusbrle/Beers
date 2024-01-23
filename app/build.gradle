@@ -10,8 +10,6 @@ plugins {
     id'com.google.firebase.firebase-perf'
 
 
-
-
 }
 apollo {
     service("service") {
@@ -117,6 +115,7 @@ dependencies {
 
     implementation libs.androidx.window.size
     implementation libs.androidx.material3
+    implementation libs.accompanist.adaptive
 
     testImplementation libs.junit
     testImplementation libs.roboelectric
@@ -125,6 +124,8 @@ dependencies {
     androidTestImplementation libs.compose.ui.test.junit4
     debugImplementation libs.compose.ui.tooling
     debugImplementation libs.compose.ui.test.manifest
+
+    implementation libs.androidx.runtime.livedata
 
     implementation("com.apollographql.apollo3:apollo-runtime:3.8.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")

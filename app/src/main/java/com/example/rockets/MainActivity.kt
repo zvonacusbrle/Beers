@@ -5,32 +5,42 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
+import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.lifecycle.lifecycleScope
+import com.google.accompanist.adaptive.calculateDisplayFeatures
 import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.perf.FirebasePerformance
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val mainViewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
+    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
 
         FirebaseApp.initializeApp(this)
         FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
         FirebasePerformance.getInstance().isPerformanceCollectionEnabled = true
 
         setContent {
-            setupObserver()
+            val windowSize = calculateWindowSizeClass(this)
+            val displayFeatures = calculateDisplayFeatures(this)
+            //val uiState by viewModel.uiState.collectAsStateWithLifecycle()
         }
     }
 
     private fun setupObserver() {
         lifecycleScope.launch {
-            mainViewModel.getRockets().observe(this@MainActivity) {
+            viewModel.getRockets().observe(this@MainActivity) {
                 when (it) {
                     is Resource.Loading -> {
                         Log.d(TAG, "Loading - Called")
