@@ -26,6 +26,10 @@ compileSdk = "34"
 minSdk = "21"
 # @keep
 targetSdk = "33"
+agp = "8.1.0"
+org-jetbrains-kotlin-android = "1.9.0"
+appcompat = "1.6.1"
+com-google-android-material-material = "1.11.0"
 
 [libraries]
 accompanist-adaptive = { module = "com.google.accompanist:accompanist-adaptive", version.ref = "accompanistAdaptive" }
@@ -58,3 +62,8 @@ hilt-kapt = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 
 lifecycle-live-data = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "com-google-android-material-material" }
+[plugins]
+com-android-library = { id = "com.android.library", version.ref = "agp" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
