@@ -10,8 +10,6 @@ import com.google.accompanist.adaptive.calculateDisplayFeatures
 import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.perf.FirebasePerformance
-import dagger.hilt.android.AndroidEntryPoint
-import org.koin.core.context.GlobalContext.startKoin
 
 class MainActivity : ComponentActivity() {
     // private val viewModel: MainViewModel by viewModels()

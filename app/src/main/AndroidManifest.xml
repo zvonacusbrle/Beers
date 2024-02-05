@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rockets"
         tools:targetApi="31"
-        android:name=".MyApplication">
+        >
         <activity
            android:name="com.example.rockets.MainActivity"
             android:exported="true"
