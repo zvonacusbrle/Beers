@@ -1,9 +1,9 @@
 package com.example.domain.repository
 
-import com.example.data.network.MyApi
+import com.apollographql.apollo3.ApolloCall
+import com.data.RocketsQuery
 
-class RocketsRepository(
-    private val myApi: MyApi
-) {
-    suspend fun rocketsQuery() = myApi.fetchRockets()
+
+interface RocketsRepository{
+    suspend fun rocketsQuery() : ApolloCall<RocketsQuery.Data>
 }
