@@ -1,8 +1,9 @@
-package com.example.domain.repository
+package com.example.repository
 
 import com.apollographql.apollo3.ApolloCall
 import com.data.RocketsQuery
 import com.example.data.network.MyApi
+import com.example.domain.repository.RocketsRepository
 
 
 class RocketsRepositoryImpl(
