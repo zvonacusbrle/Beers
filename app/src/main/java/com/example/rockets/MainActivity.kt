@@ -31,6 +31,7 @@ class MainActivity : ComponentActivity() {
             val windowSize = calculateWindowSizeClass(this)
             val displayFeatures = calculateDisplayFeatures(this)
             // val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
         }
     }
 }
