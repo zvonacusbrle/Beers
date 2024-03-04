@@ -10,10 +10,9 @@ import com.google.accompanist.adaptive.calculateDisplayFeatures
 import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.perf.FirebasePerformance
-import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {
-     //private val viewModel: MainViewModel by inject()
+    // private val viewModel: MainViewModel by inject()
 
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +27,6 @@ class MainActivity : ComponentActivity() {
             val windowSize = calculateWindowSizeClass(this)
             val displayFeatures = calculateDisplayFeatures(this)
             // val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-
         }
     }
 }

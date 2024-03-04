@@ -8,27 +8,21 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 class ViewModel(
-    private val repository: RocketsRepository,
+    private val repository: RocketsRepository
 
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(HomeViewState())
     private val refreshing = MutableStateFlow(false)
 
-
     val state: StateFlow<HomeViewState>
         get() = _state
 
     init {
         viewModelScope.launch {
-
         }
     }
-
-
 }
-
-
 
 data class HomeViewState(
 
