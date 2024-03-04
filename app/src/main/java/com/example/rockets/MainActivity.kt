@@ -10,13 +10,10 @@ import com.google.accompanist.adaptive.calculateDisplayFeatures
 import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.perf.FirebasePerformance
-import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-   // private val viewModel: MainViewModel by viewModels()
-
-    // private val viewModel: MainViewModel by viewModels()
+    // private val viewModel: MainViewModel by inject()
 
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {

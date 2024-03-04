@@ -2,17 +2,17 @@ package com.example.domain.usecase
 
 
 import com.apollographql.apollo3.ApolloCall
-import com.data.RocketsQuery
+import com.apollographql.apollo3.api.Operation
+
 import com.example.domain.repository.RocketsRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-suspend fun getRocketsUseCase(rocketsRepository: RocketsRepository,
-                              dispatcher: CoroutineDispatcher = Dispatchers.IO
-) : ApolloCall<RocketsQuery.Data> {
+interface GetRockets {
+    suspend fun invoke(param: Any): ApolloCall<Operation.Data>
+}
 
-    return withContext(dispatcher){
-        rocketsRepository.rocketsQuery()
-    }
+ interface GetRocketsUseCase: GetRockets {
+    override suspend fun invoke(param: Any): ApolloCall<Operation.Data>
 }
