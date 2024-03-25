@@ -11,14 +11,16 @@ import kotlinx.coroutines.flow.flow
 class RocketsRepositoryImpl(
     private val apolloClient: ApolloClient
 ) : RocketsRepository {
-    override suspend fun getRockets(): Flow<List<Rocket>?> = flow{
+    override suspend fun getRockets(): Flow<List<Rocket>> = flow{
         val response = apolloClient.query(RocketsQuery()).execute()
         val rockets = response.data?.rockets?.mapNotNull {rocket ->
             rocket?.asRocket()
-        }
+        } ?: emptyList()
 
         emit(rockets)
     }
+
+
 }
 
 fun RocketsQuery.Rocket.asRocket(): Rocket {
