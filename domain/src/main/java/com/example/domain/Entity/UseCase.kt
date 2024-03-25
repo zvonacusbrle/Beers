@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.map
 
 abstract class UseCase<I : UseCase.Request, O : UseCase.Response>(private val configuration: Configuration) {
 
-    fun execute(request: I) = process(request)
+    suspend fun execute(request: I) = process(request)
         .map {
             Result.Success(it) as Result<O>
         }
@@ -20,7 +20,7 @@ abstract class UseCase<I : UseCase.Request, O : UseCase.Response>(private val co
             emit(Result.Error(UseCaseException.createFromThrowable(it)))
         }
 
-    internal abstract fun process(request: I): Flow<O>
+    internal abstract suspend fun process(request: I): Flow<O>
 
     class Configuration(val dispatcher: CoroutineDispatcher)
 

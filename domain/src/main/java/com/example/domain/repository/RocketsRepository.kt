@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface RocketsRepository{
-    suspend fun getRockets() : Flow<List<Rocket>?>
+    suspend fun getRockets() : Flow<List<Rocket>>
 }
