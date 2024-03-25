@@ -2,7 +2,7 @@ package com.example.data.repository
 
 import com.apollographql.apollo3.ApolloClient
 import com.data.RocketsQuery
-import com.example.domain.model.Rocket
+import com.example.domain.Entity.Rocket
 import com.example.domain.repository.RocketsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.flow
 class RocketsRepositoryImpl(
     private val apolloClient: ApolloClient
 ) : RocketsRepository {
-    override suspend fun fetchRockets(): Flow<List<Rocket>?> = flow{
+    override suspend fun getRockets(): Flow<List<Rocket>?> = flow{
         val response = apolloClient.query(RocketsQuery()).execute()
-        val rockets = response.data?.rockets?.mapNotNull {
-            it?.asRocket()
+        val rockets = response.data?.rockets?.mapNotNull {rocket ->
+            rocket?.asRocket()
         }
 
         emit(rockets)
