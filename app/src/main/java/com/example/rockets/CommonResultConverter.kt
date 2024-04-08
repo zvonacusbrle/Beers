@@ -1,10 +1,7 @@
 package com.example.rockets
 
-import android.util.Log
-import com.example.rockets.state.UiState
 import com.example.domain.Entity.Result
-import timber.log.Timber
-import java.util.logging.Logger
+import com.example.rockets.state.UiState
 
 abstract class CommonResultConverter<T : Any, R : Any> {
 

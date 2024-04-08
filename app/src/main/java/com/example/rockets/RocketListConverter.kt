@@ -1,17 +1,20 @@
 package com.example.rockets
 
-import android.content.Context
 import com.example.domain.Entity.Rocket
+import com.example.domain.Entity.RocketsList
 import com.example.domain.usecase.GetRocketsUseCase
 
-class RocketListConverter(private val context: Context) :
-    CommonResultConverter<GetRocketsUseCase.Response, Rocket>() {
+class RocketListConverter : CommonResultConverter<GetRocketsUseCase.Response, RocketsList>() {
 
-    override fun convertSuccess(data: GetRocketsUseCase.Response): Rocket {
-        return (
-
+    override fun convertSuccess(data: GetRocketsUseCase.Response): RocketsList {
+        return RocketsList(
+            items = data.rockets.map {
+                Rocket(
+                    id = it.id,
+                    name = it.name,
+                    description = it.description
+                )
+            }
         )
     }
-
-
 }
