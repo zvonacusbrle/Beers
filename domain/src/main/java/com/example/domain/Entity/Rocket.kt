@@ -5,3 +5,7 @@ data class Rocket(
     val name: String?,
     val description: String?,
 )
+
+data class RocketsList(
+    val items: List<Rocket> = listOf()
+)
