@@ -38,17 +38,17 @@ class MainActivity : ComponentActivity() {
 
             when (val uiState = state) {
                 is UiState.Loading -> {
-                    Timber.tag("TAG").d("Loading  ")
+                    Timber.tag("MainActivity").d("Loading  ")
                     Text("Loading")
                 }
                 is UiState.Success -> {
                     val rockets = uiState.data
-                    Timber.tag("TAG").d("onCreate: SUCESS  ")
-                    Timber.tag("TAG").d("data: $rockets  ")
+                    Timber.tag("MainActivity").d("onCreate: SUCESS  ")
+                    Timber.tag("MainActivity").d("data: $rockets  ")
                     Text("Rockets: $rockets")
                 }
                 is UiState.Error -> {
-                    Timber.tag("TAG").d("onCreate: ERROR  ")
+                    Timber.tag("MainActivity").d("onCreate: ERROR  ")
                     Text("Error")
                 }
             }

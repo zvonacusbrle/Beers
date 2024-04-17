@@ -8,13 +8,8 @@ class RocketListConverter : CommonResultConverter<GetRocketsUseCase.Response, Ro
 
     override fun convertSuccess(data: GetRocketsUseCase.Response): RocketsList {
         return RocketsList(
-            items = data.rockets.map {
-                Rocket(
-                    id = it.id,
-                    name = it.name,
-                    description = it.description
-                )
-            }
+            items = data.rockets.items
+
         )
     }
 }

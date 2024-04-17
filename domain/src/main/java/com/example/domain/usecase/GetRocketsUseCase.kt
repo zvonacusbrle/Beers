@@ -1,6 +1,7 @@
 package com.example.domain.usecase
 
 import com.example.domain.Entity.Rocket
+import com.example.domain.Entity.RocketsList
 import com.example.domain.Entity.UseCase
 import com.example.domain.repository.RocketsRepository
 import kotlinx.coroutines.flow.Flow
@@ -18,7 +19,7 @@ class GetRocketsUseCase(
 
 
     object Request : UseCase.Request
-    data class Response(val rockets: List<Rocket>) : UseCase.Response
+    data class Response(val rockets: RocketsList) : UseCase.Response
 
 
 }
