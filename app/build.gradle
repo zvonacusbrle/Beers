@@ -141,4 +141,7 @@ dependencies {
 
 // Timber
     implementation libs.timber
+
+    //Google services
+    implementation libs.gms.google.services
 }

@@ -19,6 +19,7 @@ rxJava = "3.0.0"
 hilt = "2.48"
 lifecycle = "2.7.0"
 timber = "4.7.1"
+gms_google_service = "4.3.10"
 
 # @keep
 compileSdk = "34"
@@ -51,6 +52,7 @@ graphql = { module = "com.apollographql.apollo3:apollo-runtime", version.ref = "
 graphql-rx3 = { module = "com.apollographql.apollo3:apollo-rx3-support", version.ref = "graphql" }
 rxAndroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxJava" }
 rxJava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxJava" }
+gms-google-services = { module = "com.google.gms:google-services", version.ref = "gms_google_service"}
 
 
 hilt-implementation = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
