@@ -14,12 +14,12 @@ import com.google.accompanist.adaptive.calculateDisplayFeatures
 import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.perf.FirebasePerformance
-import org.koin.android.ext.android.inject
-import timber.log.Timber
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val viewModel: ViewModel by inject()
+    private val viewModel: MainViewModel by viewModels()
 
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,4 +56,10 @@ class MainActivity : ComponentActivity() {
 
         }
     }
+}
+
+sealed class Resource<T>(val data: T? = null, val message: String? = null) {
+    class Loading<T>(data: T? = null) : Resource<T>(data)
+    class Success<T>(data: T) : Resource<T>(data)
+    class Error<T>(data: T? = null, message: String) : Resource<T>(data, message)
 }
