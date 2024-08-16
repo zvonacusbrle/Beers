@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Rockets"
 include ':app'
+include ':domain'
+
