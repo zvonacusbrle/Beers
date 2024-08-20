@@ -22,7 +22,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.rockets"
-        minSdk = 21
+        minSdk = 26
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -147,3 +147,5 @@ dependencies {
     //Google services
     implementation libs.gms.google.services
 }
+
+apply plugin: 'com.google.gms.google-services'

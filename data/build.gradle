@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id "org.jlleitschuh.gradle.ktlint" version "11.5.1"
+    id "com.apollographql.apollo3" version "3.8.2"
+    id 'kotlin-kapt'
+}
+
+
+apollo {
+    service("service") {
+        packageName.set("com.data")
+    }
+}
+
+android {
+    namespace 'com.example.data'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 26
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+    android.sourceSets.main.java.srcDirs += 'src/main/graphql'
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    apollo {
+        service("RocketsGraphQL") {
+            packageName.set("com.example.rockets")
+
+            introspection{
+                endpointUrl.set("https://spacex-production.up.railway.app/")
+                schemaFile.set(file("src/main/graphql/com/data/rockets/schema.sdl"))
+
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation project(":domain")
+
+    implementation libs.core.ktx
+    implementation libs.app.compat
+    implementation libs.androidx.material3
+    testImplementation libs.junit
+    testImplementation libs.koin.tests
+    testImplementation libs.koin.test.junit4
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    implementation libs.koin.main
+    implementation libs.koin.core
+
+    implementation libs.graphql.main
+    implementation libs.apollo.coroutines.support
+
+}
