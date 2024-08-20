@@ -6,6 +6,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
     id 'com.google.dagger.hilt.android'
+    id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
     id'com.google.firebase.firebase-perf'
 
@@ -133,5 +134,3 @@ dependencies {
     //Google services
     implementation libs.gms.google.services
 }
-
-apply plugin: 'com.google.gms.google-services'
