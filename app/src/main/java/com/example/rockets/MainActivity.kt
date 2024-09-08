@@ -15,11 +15,12 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.perf.FirebasePerformance
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: ViewModel by inject()
 
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +54,6 @@ class MainActivity : ComponentActivity() {
                 }
             }
             // val uiState by viewModel.uiState.collectAsStateWithLifecycle()
-
         }
     }
 }
