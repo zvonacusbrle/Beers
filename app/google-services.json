@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "475950048169",
+    "project_id": "rockets-87280",
+    "storage_bucket": "rockets-87280.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475950048169:android:272e94ee0c010f8a641ab8",
+        "android_client_info": {
+          "package_name": "com.example.rockets"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvQWF-nERFP01ooZRItWmJ9bd81jHloc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
