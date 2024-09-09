@@ -8,7 +8,6 @@ import com.example.domain.repository.RocketsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-
 class RocketsRepositoryImpl(
     private val apolloClient: ApolloClient
 ) : RocketsRepository {
