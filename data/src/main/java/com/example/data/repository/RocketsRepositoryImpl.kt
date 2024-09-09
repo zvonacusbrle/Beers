@@ -1,7 +1,7 @@
 package com.example.data.repository
 
 import com.apollographql.apollo3.ApolloClient
-import com.data.RocketsQuery
+import com.example.data.RocketsQuery
 import com.example.domain.Entity.Rocket
 import com.example.domain.Entity.RocketsList
 import com.example.domain.repository.RocketsRepository
