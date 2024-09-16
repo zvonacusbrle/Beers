@@ -6,10 +6,7 @@ plugins {
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
     id'com.google.firebase.firebase-perf'
-
-
 }
-
 
 android {
     namespace 'com.example.rockets'
@@ -17,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.rockets"
-        minSdk = 21
+        minSdk = 26
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -88,11 +85,12 @@ dependencies {
     implementation libs.activity.compose
     implementation libs.composeUi
     implementation libs.compose.ui.tooling.preview
-    implementation libs.koin
-    implementation libs.koin.core
+    implementation libs.koin.main
 
 
-    implementation libs.graphql
+    implementation libs.graphql.main
+    implementation libs.hilt.implementation
+    implementation libs.hilt.kapt
     implementation libs.lifecycle.live.data
     implementation libs.androidx.material
 
@@ -105,7 +103,7 @@ dependencies {
     androidTestImplementation libs.androidx.test.ext.junit
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.compose.ui.test.junit4
-    debugImplementation libs.compose.ui.tooling
+    debugImplementation libs.compose.ui.tool
     debugImplementation libs.compose.ui.test.manifest
 
     implementation libs.androidx.runtime.livedata
@@ -122,4 +120,7 @@ dependencies {
 
 // Timber
     implementation libs.timber
+
+    //Google services
+    implementation libs.gms.google.services
 }
